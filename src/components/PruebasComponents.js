@@ -1,4 +1,5 @@
 import React, {useEffect, useState} from 'react'
+import AvisoComponent from './AvisoComponent';
 
 const PruebasComponents = () => {
 //Estados  
@@ -22,7 +23,7 @@ useEffect(()=>{
 useEffect(()=>{
   setCont(cont + 1);
   console.log("has modificado el usuario " + cont)
-},[user]);
+},[date, user]);
   return (
     <div>
         <h1>UseEffect</h1>
@@ -30,8 +31,9 @@ useEffect(()=>{
         <strong>{date}</strong>
         <p>
           <input type="text" onChange={modUser} placeholder="Cambia el Nombre"/>
+          <button onClick={changeDate}>Cambiar Fecha</button>
         </p>
-        <button onClick={changeDate}>Cambiar Fecha</button>
+        {user === "JUAN" && <AvisoComponent></AvisoComponent>} 
 
     </div>
   )
